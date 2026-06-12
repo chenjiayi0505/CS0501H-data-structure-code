@@ -12,16 +12,16 @@ void createList(int n,int *&markList){
 
 // 在 a[la..n] 和 b[lb..m] 中找第 k 小
 int findKth(int* a, int la, int n, int* b, int lb, int m, int k){
-    // 保证 a 的剩余长度 <= b 的剩余长度,f方便后续处理
+    // 保证 a 的剩余长度 <= b 的剩余长度,方便后续处理
     // 如果 a 长度更大，则交换
     if(n - la + 1 > m - lb + 1){
         return findKth(b, lb, m, a, la, n, k);
     }
-    // 边界情况：a 数组已空
+    // a 数组已空
     if(la > n){
         return b[lb + k - 1];
     }
-    // 边界情况：k == 1，找两个数组当前第一个元素的最小值
+    // k == 1，找两个数组当前第一个元素的最小值
     if(k == 1){
         return min(a[la], b[lb]);
     }
